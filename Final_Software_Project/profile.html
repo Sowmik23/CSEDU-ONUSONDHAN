@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>CSEDU - ONUSHONDHAN</title>
+
+<link rel="stylesheet" href="profile.css">
+<link rel="icon" type="image/icon" href="image\csedu.png">
+
+<body>
+
+    <div id="totaldiv" style="display:none">
+        <!-- <div id="pro_id"></div> -->
+        <div class="topdiv">
+            <a href="index.html"><img src="image/back.png" class="back" alt="Back" title="Back To Home"></a>
+            <h3 class="back">Back To Home</h3>
+        </div>
+        <div class=" row">
+            <p>.</p>
+            <div class="column1">
+                <div class="card">
+                    <img class="profile" id="pp" src="image/pp.jpg" title="profile picture" alt="profile picture">
+                    <input class="propicchoose" id="propic" type="file" name="pic" accept="image/*"
+                        style="display:none">
+                    <h3 align="center" id="name"></h3>
+                    <textarea class="biotextarea" placeholder="Your Name" id="pname" style="display:none"></textarea>
+                    <button id="savepic" style="display:none" onclick="savePic()">Save</button>
+
+                    <u class="probio" style="cursor:pointer" id="editpro" onclick="editProfile()">Edit</u>
+                </div>
+                <div class="card">
+                    <div class="probio">
+                        <p><b>Session: </b></p>
+                        <p id="bio" class="biop"></p>
+
+                        <u style="cursor:pointer" onclick="editbio()" id="editbio">Edit</u>
+                        <textarea class="biotextarea" placeholder="Add your bio" id="addbio"
+                            style="display:none"></textarea>
+                        <br>
+                        <button id="savebio" style="display:none" onclick="saveBio()">Save</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <p><b>Email: </b></p>
+                    <p id="email" class="probio"></p>
+                    <hr>
+                    <P><b>Education:</b></P>
+                    <p id="edu" class="probio"></p>
+                    <u style="cursor:pointer" onclick="editedu()" class="probio" id="editedu">Edit</u>
+                    <textarea class="biotextarea" placeholder="Add Education" id="addedu"
+                        style="display:none"></textarea>
+                    <br>
+                    <button id="saveedu" style="display:none" onclick="saveEdu()">Save</button>
+                    <hr>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAJIynVv-Ss3TGcRamyu3jz2akk2PMByiE",
+            authDomain: "csedu-onushondhan.firebaseapp.com",
+            databaseURL: "https://csedu-onushondhan.firebaseio.com",
+            projectId: "csedu-onushondhan",
+            storageBucket: "csedu-onushondhan.appspot.com",
+            messagingSenderId: "286187137249"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        var loggedinuserid;
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            loggedinuserid = user.uid;
+
+            var DatabaseRef = firebase.database().ref('/Users');
+            DatabaseRef.on('value', function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var childData = childSnapshot.val();
+                    if (loggedinuserid == childData.UserID) {
+                        document.getElementById("name").innerText = childData.FirstName;
+                        document.getElementById("bio").innerText = childData.Session;
+                        document.getElementById("email").innerText = childData.Email;
+                        document.getElementById("edu").innerText = childData.University;
+                        //document.getElementById("work").innerText = childData.work;
+
+                        document.getElementById("totaldiv").style.display = 'block';
+                    }
+
+                });
+            });
+        });
+
+
+    </script>
+    <script type="text/javascript" src="profile.js"></script>
+
+    <!-- <script>
+        //window.alert("I am");
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                profile_button
+                document.getElementById('signup_button').style.display = "none";
+                document.getElementById('profile_button').style.display = "block";
+                document.getElementById('logout_button').style.display = "block";
+                document.getElementById('login_button').style.display = "none";
+                document.getElementById('ask_question_btn').style.display = "block";
+                //document.getElementById('profile_button').style.display="block";
+
+            } else {
+                document.getElementById('profile_button').style.display = "none";
+                document.getElementById('signup_button').style.display = "block";
+                document.getElementById('login_button').style.display = "block";
+                document.getElementById('ask_question_btn').style.display = "block";
+
+            }
+        });
+    </script> -->
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="users.js"></script>
+    <script type="text/javascript" src="profile.js"></script>
+
+</body>
+
+</html>

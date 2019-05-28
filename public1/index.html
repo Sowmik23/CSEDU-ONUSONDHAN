@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>CSEDU - ONUSHONDHAN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/icon" href="image\csedu.png">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<body>
+
+    <!-- Navigation bar -->
+    <div id="userDiv" class="w3-top">
+        <div class="w3-bar w3-teal w3-wide w3-padding w3-card ">
+            <!-- <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a> -->
+            <a href="index.html" class="w3-bar-item w3-button w3-myfont w3-myfont">CSEDU-Onushondhan
+            </a>
+
+            <div class="SearchBar w3-teal">
+                <form action="/action_page.php">
+                    <!-- <input type="text" placeholder="Search..." name="search"> -->
+                    <marquee>সিএসই ডিইউ-অনুসন্ধান পেইজ এ আপনাকে স্বাগতম </marquee>
+                    <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+                </form>
+
+            </div>
+
+            <button id="profile_button" class="signin_btn w3-button" onclick="document.getElementById('profile_form').style.display='block'"> <b>Profile</b></button>
+
+            <button id="login_button" class="signin_btn w3-button" onclick="document.getElementById('login_form').style.display='block'"> <b>LogIn</b></button>
+            <button id="logout_button" class="signin_btn w3-button" style="display:none" onclick="logOut()">
+                <b>Logout</b></button>
+            <button id="signup_button" class="signin_btn w3-button" onclick="document.getElementById('signup_form').style.display='block'"> <b>SignUp</b></button>
+
+        </div>
+
+    </div>
+
+
+    <!-- User profile Modal -->
+    <div id="profile_form" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+
+            <div class="w3-container w3-teal">
+                <span onclick="document.getElementById('profile_form').style.display='none'" class="w3-button w3-display-topright w3-large w3-teal w3-hover-red"><b>x</b></span>
+                <h1 style="text-align: center">My Profile</h1>
+            </div>
+
+
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half w3-margin-bottom">
+                    <ul class="w3-ul w3-white w3-center">
+                        <!-- <li class="w3-black w3-xlarge w3-padding-32">Basic</li> -->
+
+                        <li class="w3-padding-16">
+                            <p><i class="fa fa-user-circle fa-fw w3-margin-right w3-large w3-text-teal"></i>User Name : Sowmik Sarker </p>
+                        </li>
+
+                        <li class="w3-padding-16 ">
+                            <p><i class="fa fa-graduation-cap fa-fw w3-margin-right w3-large w3-text-teal"></i>School/University : University of Dhaka </p>
+                        </li>
+
+                        <li class="w3-padding-16 ">
+                            <p><i class="fa fa-calendar-o fa-fw w3-margin-right w3-large w3-text-teal"></i>Session : 2016-17 </p>
+                        </li>
+
+                        <li class="w3-padding-16 ">
+                            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Home Town : Dhaka </p>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="w3-half">
+                    <ul class="w3-ul w3-white w3-center">
+                        <!-- <li class="w3-black w3-xlarge w3-padding-32">Activity</li> -->
+
+                        <li class="w3-padding-16">
+                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Profession : Student</p>
+                        </li>
+
+                        <li class="w3-padding-16">
+                            <p><i class="fa fa-question fa-fw w3-margin-right w3-large w3-text-teal"></i>Total Questions : 23</p>
+                        </li>
+
+                        <li class="w3-padding-16">
+                            <p><i class="fa fa-reply fa-fw w3-margin-right w3-large w3-text-teal"></i>Total Answers : 2 </p>
+                        </li>
+
+                        <li class="w3-padding-16">
+                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email : example@gmail.com </p>
+                        </li>
+
+                        <!-- <li class="w3-padding-16">
+                                <h2>$ 25</h2>
+                                <span class="w3-opacity">per month</span>
+                            </li>
+                            <li class="w3-light-grey w3-padding-24">
+                                <button class="w3-button w3-white w3-padding-large">Sign Up</button>
+                            </li> -->
+
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+        </div>
+    </div>
+
+
+    <!-- Login form -->
+    <div id="login_form" class="modal">
+
+
+        <div class="modal-content animate" action="index.html">
+
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('login_form').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+
+
+            <div class="container">
+                <label for="email"><b>Email</b></label>
+                <input id="email_login" type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id="password_login" type="password" placeholder="Enter Password" name="psw" required>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+
+                <button class="button_login" type="submit" onclick="Login()">Login</button>
+
+            </div>
+
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('login_form').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SignUp form -->
+    <div id="signup_form" class="modal">
+
+
+        <div class="modal-content animate" action="index.html">
+
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('signup_form').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="image/antor.jpg" alt="Avatar" class="avatar">
+            </div>
+
+
+            <div class="container">
+                <label for="name"><b>Name</b></label>
+                <input id="username_signup" class="signup_form" type="text" placeholder="Your Name" name="name" required>
+
+                <label for="email"><b>Email</b></label>
+                <input id="email_signup" class="signup_form" type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="university"><b>School/University</b></label>
+                <input id="university_signup" class="signup_form" type="text" placeholder="Enter your school/university name" name="university" required>
+
+                <label for="session"><b>Session</b></label>
+                <input id="session_signup" class="signup_form" type="text" placeholder="Enter your session " name="session" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id="password_signup" class="signup_form" type="password" placeholder="Enter Password" name="psw" required>
+
+                <label for="Rpsw"><b>Confirm Password</b></label>
+                <input id="confirm_pass_signup" class="signup_form" type="password" placeholder="Repeat Password" name="Rpsw" required>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signup_form').style.display='none'" class="SignCancelBtn">Cancel</button>
+                    <button type="submit" class="signupbtn" onclick="SignUp()">Sign Up</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <a href="index.html" class="w3-bar-item w3-button w3-hover-black">Home</a>
+        <h5 class="w3-bar-item"><b>Public</b></h5>
+
+        <a href="top_questions.html" class="w3-bar-item w3-button w3-hover-black"> <i class="fa fa-globe w3-margin-right"></i> CSEDU-Onushondhan
+        </a>
+        <a href="tags.html" class="w3-bar-item w3-button w3-hover-black">Tags</a>
+        <a href="users.html" class="w3-bar-item w3-button w3-hover-black">Users</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="http://www.cse.du.ac.bd/" target="_blank">CSEDU</a>
+    </nav>
+
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+    <div class="w3-main" style="margin-left:200px">
+
+        <div class="w3-row w3-padding-64">
+
+
+
+            <div class="w3-twothird w3-container">
+
+                <a class="w3-text-teal">
+                    <h3>All Questions
+                        <!-- <button class="w3-right"><h6>Ask Question</h6></button> -->
+                        <button id="ask_question_btn" onclick="document.getElementById('ask_question').style.display='block'" class="w3-right button button1">Ask Question</button>
+                    </h3>
+                </a>
+
+
+                <div id="ask_question" class="w3-modal">
+                    <div class="w3-modal-content w3-animate-zoom">
+
+                        <div class="w3-container w3-teal">
+                            <span onclick="document.getElementById('ask_question').style.display='none'" class="w3-button w3-display-topright w3-large w3-teal w3-hover-red"><b>x</b></span>
+                            <h1>Ask Question</h1>
+                        </div>
+
+                        <div class="w3-container">
+
+                            <div target="_blank">
+                                <p>What type of question do you have? We’ll help you find the best way to get your answer.
+                                </p>
+                                <p><input id="asking_question" class="w3-input w3-padding-16 w3-border" type="text" placeholder="Write your Questions here." required name="Text"></p>
+
+                                <p>What is your question about? Like csedu or faculty or undergraduate or teacher etc. Tags help the right people find and answer your question.</p>
+                                <p><input id="asking_tag" class="w3-input w3-padding-16 w3-border" type="text" placeholder="Give tags of your question." required name="Text"></p>
+
+                                <p>Tell us more about your question. Your description gives people the information they need to help you answer your question.</p>
+                                <p><input id="asking_description" class="w3-input w3-padding-16 w3-border" type="text" placeholder="Some description about your question." required name="Text"></p>
+
+
+                                <div class="clearfix">
+                                    <div class="w3-left">
+                                        <p><button class="w3-button" onclick="document.getElementById('ask_question').style.display='none'" class="PostCancelBtn">CANCEL</button></p>
+                                    </div>
+                                    <div class="w3-right">
+                                        <p><button onclick="Ask_Question()" class="w3-button" type="submit">POST
+                                                QUESTION</button></p>
+
+                                        <script type="text/javascript" src="ask_question.js"></script>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div id="postholder"></div>
+                <div id="poplarQuestionHolder"></div>
+
+
+            </div>
+
+
+
+
+            <div class="w3-third w3-container">
+
+                <!-- এইটার ভিতর যা লিখব সব রাইট কলাম এ যাবে  -->
+
+                <!-- Popular Posts -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding">
+                        <h4>Popular Posts</h4>
+                    </div>
+                    <ul class="w3-ul w3-hoverable w3-white">
+                        <div id="question_list"></div>
+                    </ul>
+                </div>
+
+
+                <!-- Labels / tags -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding">
+                        <h4>Popular Tags</h4>
+                    </div>
+                    <div class="w3-container w3-white">
+                        <p>
+                            <div id="tag_id"></div>
+                            <!-- <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Alumni</span> -->
+
+                        </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Pagination -->
+        <div class="w3-center w3-padding-32">
+            <div class="w3-bar">
+                <a class="w3-button w3-black" href="#">1</a>
+                <a class="w3-button w3-hover-black" href="#">2</a>
+                <a class="w3-button w3-hover-black" href="#">3</a>
+                <a class="w3-button w3-hover-black" href="#">4</a>
+                <a class="w3-button w3-hover-black" href="#">5</a>
+                <a class="w3-button w3-hover-black" href="#">»</a>
+            </div>
+        </div>
+
+
+
+        <!-- footer -->
+
+        <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="myFooter">
+            <div class="w3-row-padding">
+                <div class="w3-col s4">
+                    <h4>Contact</h4>
+                    <p>Questions? Go ahead.</p>
+                    <form target="_blank">
+                        <p><input id="name" class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
+                        <p><input id="email" class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                        <p><input id="subject" class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
+                        <p><input id="message" class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+                        <button onclick="submitContact()" type="submit" class="w3-button w3-block w3-black">Send</button>
+
+                        <script type="text/javascript" src="contact.js"></script>
+                    </form>
+                </div>
+
+                <div class="w3-col s4">
+                    <!-- <h4>About</h4>
+                        <p><a href="#">About us</a></p>
+                        <p><a href="#">We're hiring</a></p>
+                        <p><a href="#">Support</a></p>
+                        <p><a href="#">Find store</a></p>
+                        <p><a href="#">Shipment</a></p>
+                        <p><a href="#">Payment</a></p>
+                        <p><a href="#">Gift card</a></p>
+                        <p><a href="#">Return</a></p>
+                        <p><a href="#">Help</a></p> -->
+
+                    <!-- <div class="w3-col s4"> -->
+                    <h4>Campus Map</h4>
+
+                    <div id="text-2" class="widget widget_text">
+
+                        Click here for an <a href="https://goo.gl/maps/BhGkG" target="_blank">expanded view</a>.</div>
+
+                    <div class="textwidget">
+
+                        <div class="wpb_gmaps_widget wpb_content_element">
+                            <div class="wpb_wrapper">
+                                <div class="wpb_map_wraper">
+                                    <iframe width="80%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d913.1296828475806!2d90.3991466!3d23.728874599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8ef3965e60b%3A0xf374307f9516475f!2sDept+of+Computer+Science+and+Engineering%2C+University+of+Dhaka%2C+Science+Complex%2C+Suhrawardi+Udyan+Rd%2C+Dhaka!5e0!3m2!1sen!2sbd!4v1430243938493&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- </div> -->
+
+
+                </div>
+
+                <div class="w3-col s4 w3-justify">
+                    <h4>Contact Informations</h4>
+                    <p><i class="fa fa-fw fa-map-marker"></i> Department of Computer Science & Engineering, University of Dhaka.</p>
+                    <p><i class="fa fa-fw fa-phone"></i> 01750405780</p>
+                    <p><i class="fa fa-fw fa-phone"></i> 01521413688</p>
+                    <p><i class="fa fa-fw fa-envelope"></i> sowmiksarker.2355.csedu@gmail.com</p>
+                    <p><i class="fa fa-fw fa-envelope"></i>golammourshid100@gmail.com</p>
+                    <!-- <h4>We accept</h4>
+                    <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
+                    <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p> -->
+                    <br>
+                    <a href="https://www.facebook.com/CSEDU-Onushondhan-451575492248878/?modal=admin_todo_tour" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity w3-large"></i></a>
+                    <a href="https://www.instagram.com/golamantor/" target="_blank"><i
+                            class="fa fa-instagram w3-hover-opacity w3-large"></i></a>
+                    <!-- <i class="fa fa-snapchat w3-hover-opacity w3-large"><a href="https://www.snapchat.com/"></a></i>
+                    <i class="fa fa-pinterest-p w3-hover-opacity w3-large"><a href="https://www.pinterest.com/"></a></i> -->
+                    <a href="https://twitter.com/Sowmik_Sarker" target="_blank"><i
+                            class="fa fa-twitter w3-hover-opacity w3-large"></i></a>
+                    <a href="https://www.linkedin.com/in/golam-mourshid-017408185/s" target="_blank"><i
+                            class="fa fa-linkedin w3-hover-opacity w3-large"></i></a>
+                </div>
+            </div>
+
+        </footer>
+
+        <div class="w3-container w3-theme-l1">
+
+            <address style="text-align:center">
+                <p>Supported by : </p>
+                <p><a href="http://www.cse.du.ac.bd/" target="_blank">Department of Computer Science & Engineering</a>
+                </p>
+                <p><a href="http://www.du.ac.bd/" target="_blank">University of Dhaka</a></p>
+                <p>Dhaka-1000, Bangladesh.</p>
+            </address>
+
+        </div>
+
+        <!-- END MAIN -->
+    </div>
+
+
+    <!-- ***************************************************************************** -->
+
+    <!-- firebase part -->
+
+
+
+    <script>
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+
+
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+
+
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+    </script>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAJIynVv-Ss3TGcRamyu3jz2akk2PMByiE",
+            authDomain: "csedu-onushondhan.firebaseapp.com",
+            databaseURL: "https://csedu-onushondhan.firebaseio.com",
+            projectId: "csedu-onushondhan",
+            storageBucket: "csedu-onushondhan.appspot.com",
+            messagingSenderId: "286187137249"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                profile_button
+                document.getElementById('signup_button').style.display = "none";
+                document.getElementById('profile_button').style.display = "block";
+                document.getElementById('logout_button').style.display = "block";
+                document.getElementById('login_button').style.display = "none";
+                document.getElementById('ask_question_btn').style.display = "block";
+                //document.getElementById('profile_button').style.display="block";
+
+            } else {
+                document.getElementById('profile_button').style.display = "none";
+                document.getElementById('signup_button').style.display = "block";
+                document.getElementById('login_button').style.display = "block";
+                document.getElementById('ask_question_btn').style.display = "block";
+
+            }
+        });
+
+
+
+
+        firebase.database().ref('/Posts/').orderByChild("Posting_time").on('value', function(snapshot) {
+
+
+            snapshot.forEach(function(childSnapshot) {
+
+                var childData = childSnapshot.val();
+                var question = childData.Question_Name;
+                var tag = childData.Tags;
+                var date = childData.Post_Date;
+                var name = childData.User_Name;
+                var description = childData.Description;
+                var currPostId = childData.Post_Id;
+                //var normal_id=txt_comment+currPostId;
+                //var posterid=question;
+                var count_like = childData.like_count;
+                var count_dislike = childData.dislike_count;
+
+
+                //window.alert(currPostId);
+                // firebase.database().ref('/Comments/').on('value', function (snapshot1) {
+
+                //     snapshot1.forEach(function (childSnapshot1) {
+                //         var childData1 = childSnapshot1.val();
+                //         var cnt_cmnt=childData1;
+
+                document.getElementById("postholder").innerHTML += //" <br><br> "+
+                    "<div class=\"w3-col l8 s12 w3-card-4 w3-margin w3-white\" style=\"width:100%\">" +
+                    "<div class=\"w3-container\">" +
+                    "<h3><b>" + question + "</h5>" +
+                    "<span class=\"w3-tag w3-light-grey w3-small w3-margin-bottom\">" + tag + "</span>" +
+                    "</div>" +
+                    "<div class=\"w3-container\">" +
+                    "<p>" + name + " <span class=\"w3-opacity\">" + date + "</span></b></h3>" +
+                    "<h5>" + description + "</p>" +
+                    "<div class=\"w3-row\">" +
+                    "<div class=\"w3-col m12 s12\">" +
+                    "<p>" + count_like + " Likes,    " + count_dislike + " Dislikes</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "<div class=\"w3-row\">" +
+                    "<div class=\"w3-col m2 s12\">" +
+                    "<p id=\"" + currPostId + "\" onclick=\"countLike(this.id)\"><button  class=\"w3-padding-large w3-button w3-white w3-left\"><img src=\"image\\like_button.png\" width=\"35\" height=\"35\"><b><a href=\"index.html\">Like</a></b></img></button></p>" +
+                    "</div>" +
+                    "<div class=\"w3-col m4 s12\">" +
+                    "<p id=\"" + currPostId + "\" onclick=\"countDislike(this.id)\"><button class=\"w3-padding-large w3-button w3-white w3-right\"><img src=\"image\\dislike_button.png\" width=\"35\" height=\"35\"><b><a href=\"index.html\">Dislike</a></b></img></button></p>" +
+                    //"<p><button class=\"w3-button w3-padding-large w3-white w3-border\"><b>READ MORE »</b></button></p>"+
+                    "</div>" +
+                    "<div class=\"w3-col m6\">" +
+                    "<p id=\"comment" + currPostId + "\" onclick=\"saveComment(this.id)\"><button class=\" w3-button w3-white w3-right\"><img style=\"display:inline\" src=\"image\\comment_button.png\" width=\"35\" height=\"35\"><b>Comment</b></img></button></p>" +
+                    //     // "<p><span class=\"w3-padding-large w3-right\"><b>Comments  </b> <span class=\"w3-tag\">0</span></span>"+
+                    //     // "</p>"+
+                    "</div>" +
+
+
+                    //"<div id=\"Txt_id\" style=\"display:none\">"+
+                    "<div id=\"divcomment" + currPostId + "\" style=\"display:none\" class=\"w3-row\">" +
+                    "<textarea  id=\"txt_comment" + currPostId + "\" rows=\"2\" cols=\"40\" name=\"comment\" form=\"usrform\" placeholder=\"Write a comment...\"></textarea>" +
+                    //"</div>"+
+                    //"<button class=\"w3-right button button1 w3-padding-large w3-button w3-white\" id=\"comment"+currPostId+"\" onclick=\"saveComment(this.id)\" class=\"w3-right button button1\" type=\"submit\">Comment</button>"+
+
+                    // "<div id=\"divcomment"+currPostId+"\" >"+
+                    // "</div>"+
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>"
+            });
+
+
+        });
+
+
+        firebase.database().ref('/Posts/').orderByChild("like_count").on('value', function(snapshot) {
+
+            snapshot.forEach(function(childSnapshot) {
+                var childData = childSnapshot.val();
+                var question = childData.Question_Name;
+
+                document.getElementById("question_list").innerHTML +=
+                    "<li class=\"w3-padding-16\">" +
+                    "<span class=\"w3-small\">" + question + "</span><br>" +
+                    "</li>"
+            });
+        });
+
+        firebase.database().ref('/Posts/').orderByChild("like_count").on('value', function(snapshot) {
+
+            snapshot.forEach(function(childSnapshot) {
+                var childData = childSnapshot.val();
+                var tags = childData.Tags;
+
+                document.getElementById("tag_id").innerHTML +=
+                    " <span class=\"w3-tag w3-light-grey w3-small w3-margin-bottom\">" + tags + "</span>"
+            });
+        });
+    </script>
+
+
+
+    <script>
+        function Login() {
+            var email = document.getElementById("email_login").value;
+            var password = document.getElementById("password_login").value;
+
+
+            firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+                var user = firebase.auth().currentUser;
+                var uid = user.uid;
+                localStorage.setItem('currentUserID', uid);
+                localStorage.setItem('currentUser', user);
+                console.log(uid);
+                var msg = "showWelcome";
+                localStorage.setItem('prevoius', msg);
+                window.location = "index.html";
+
+
+            }, function(error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                window.alert("Error Code: " + errorCode);
+                window.alert("Error Message: " + errorMessage);
+            });
+
+        }
+    </script>
+
+    <script type="text/javascript" src="index.js"></script>
+
+
+</body>
+
+</html>
